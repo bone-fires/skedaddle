@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Story — Anniversary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="hero" id="top">
+    <nav class="nav">
+      <span class="nav-mark">∞</span>
+      <button type="button" class="nav-link" data-scroll="gallery">Gallery</button>
+      <button type="button" class="nav-link" data-scroll="mosaic">Mosaic</button>
+      <div class="music-panel" id="music-panel">
+        <audio id="bg-audio" preload="auto"></audio>
+        <button type="button" class="music-btn" id="music-toggle" aria-label="Play music">
+          <span class="music-icon music-icon-play" aria-hidden="true">▶</span>
+          <span class="music-icon music-icon-pause hidden" aria-hidden="true">❚❚</span>
+        </button>
+        <label class="music-volume-wrap">
+          <span class="sr-only">Volume</span>
+          <input type="range" id="music-volume" min="0" max="1" step="0.02" value="0.15" />
+        </label>
+        <p class="music-track" id="music-track-label"></p>
+      </div>
+    </nav>
+
+    <div class="hero-layout">
+      <div class="hero-content">
+        <p class="hero-eyebrow" id="hero-eyebrow">Celebrating</p>
+        <h1 class="hero-title" id="hero-title">Acha & Amma</h1>
+        <p class="hero-subtitle" id="hero-subtitle">A lifetime of love, in every frame</p>
+        <p class="hero-years" id="hero-years"></p>
+        <div class="hero-dedication" id="hero-dedication"></div>
+        <button type="button" class="hero-cta" data-scroll="gallery">Till death do us part</button>
+      </div>
+      <div class="hero-carousel-wrap">
+        <div class="carousel-viewport" id="carousel-viewport">
+          <div class="carousel-scene">
+            <div class="carousel-pivot">
+              <div class="carousel-ring" id="carousel-ring"></div>
+            </div>
+            <div class="carousel-floor" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button type="button" class="ctrl-btn" id="rotate-left" aria-label="Rotate left">‹</button>
+          <button type="button" class="ctrl-btn" id="rotate-right" aria-label="Rotate right">›</button>
+        </div>
+        <p class="carousel-empty hidden" id="carousel-empty">
+          Add photos to <code>photos/</code> and run <code>node generate-manifest.js</code>
+        </p>
+        <p class="focus-caption hidden" id="focus-caption"></p>
+      </div>
+    </div>
+  </header>
+
+  <section class="stats" aria-label="Highlights">
+    <div class="stat">
+      <span class="stat-value" id="stat-photos">0</span>
+      <span class="stat-label">Moments captured</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-value" id="stat-years">—</span>
+      <span class="stat-label">Years together</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-value">∞</span>
+      <span class="stat-label">Love remaining</span>
+    </div>
+  </section>
+
+  <section class="gallery-section" id="gallery">
+    <div class="section-head">
+      <h2>Gallery</h2>
+      <p>Tap any photo — browse the full timeline below.</p>
+    </div>
+    <div class="gallery-grid" id="gallery-grid" role="list"></div>
+    <p class="gallery-empty hidden" id="gallery-empty">
+      No photos yet — drop images into <code>photos/</code> or use the upload button below.
+    </p>
+  </section>
+
+  <section class="mosaic-section" id="mosaic">
+    <div class="section-head">
+      <h2>Mosaic</h2>
+      <p>Move your cursor — the wall breathes with you.</p>
+    </div>
+    <div class="mosaic-wall" id="mosaic-wall"></div>
+  </section>
+
+  <section class="upload-section" id="upload">
+    <div class="upload-compact">
+      <label class="upload-btn" id="upload-dropzone" for="file-input">
+        <span class="upload-icon">+</span>
+        <span>Add temporary memories (session only)</span>
+      </label>
+      <input type="file" id="file-input" accept="image/*" multiple hidden />
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Made with love · <span id="footer-names">Acha & Amma</span></p>
+    <button type="button" class="footer-top" data-scroll="top" aria-label="Back to top">↑</button>
+  </footer>
+
+  <div class="lightbox hidden" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
+    <button type="button" class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous">‹</button>
+    <button type="button" class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next">›</button>
+    <div class="lightbox-stage">
+      <figure class="lightbox-figure">
+        <img src="" alt="" id="lightbox-img" />
+        <figcaption id="lightbox-caption"></figcaption>
+        <p class="lightbox-counter" id="lightbox-counter"></p>
+      </figure>
+    </div>
+    <div class="lightbox-strip-scroll" id="lightbox-strip-scroll">
+      <div class="lightbox-filmstrip" id="lightbox-filmstrip" role="list"></div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
