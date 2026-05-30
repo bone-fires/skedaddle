@@ -17,8 +17,8 @@ window.ANNIVERSARY_CONFIG = {
 
   musicLoop: true,
   music: [
-    { src: "music/s1.mp3", title: "Soothing Melody (s1)" },
-    { src: "music/s2.mp3", title: "Sweet Remembrance (s2) - Backup" }
+    { src: "music/s1.mp3", title: "Margazhippoove" },
+    { src: "music/s2.mp3", title: "Eeran Megham" }
   ],
 
   /** Photo list + years live in photos/photo-manifest.json — edit update-manifest.ts and run: npx tsx update-manifest.ts */
